@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f4f6f5;
+  color: #1a2e1f;
+}
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e8f5e9, #d3e8db);
+}
+
+.auth-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 340px;
+}
+
+.auth-card h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  color: #667;
+  margin-top: 0;
+}
+
+.auth-card label {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.auth-card input,
+.auth-card textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.auth-card button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  background: #2f9e44;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hint {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.error {
+  background: #ffe3e3;
+  color: #c92a2a;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background: #1a2e1f;
+  color: white;
+}
+
+.topbar h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #6b9;
+  color: #cfe;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dashboard-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.project-list {
+  width: 280px;
+  background: white;
+  border-right: 1px solid #e2e6e3;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.project-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-list-header button {
+  background: #2f9e44;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.project-list ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.project-list li {
+  padding: 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.project-list li:hover {
+  background: #f1f5f1;
+}
+
+.project-list li.active {
+  background: #e6f4ea;
+  border: 1px solid #2f9e44;
+}
+
+.project-type {
+  font-size: 0.7rem;
+  color: #778;
+  text-transform: uppercase;
+}
+
+.new-project-form {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.new-project-form input,
+.new-project-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccd;
+  border-radius: 6px;
+}
+
+.new-project-form button {
+  background: #2f9e44;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.map-container {
+  flex: 1;
+}
+
+.site-detail {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.back-link {
+  color: #2f9e44;
+  text-decoration: none;
+  font-weight: 600;
+}

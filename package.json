@@ -1,0 +1,25 @@
+{
+  "name": "darukaa-earth",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Root config for git hooks that lint both frontend (JS) and backend (Python) code before every commit.",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10"
+  },
+  "lint-staged": {
+    "frontend/**/*.{js,jsx}": [
+      "prettier --write",
+      "bash -c 'cd frontend && npx eslint --fix'"
+    ],
+    "frontend/**/*.{css,md,json}": [
+      "prettier --write"
+    ],
+    "backend/**/*.py": [
+      "bash -c 'cd backend && black . && flake8 .'"
+    ]
+  }
+}
