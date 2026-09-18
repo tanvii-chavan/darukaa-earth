@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "description": "Root config for git hooks that lint both frontend (JS) and backend (Python) code before every commit.",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint:backend": "node scripts/lint-backend.js"
   },
   "devDependencies": {
     "husky": "^9.1.6",
@@ -17,9 +18,6 @@
     ],
     "frontend/**/*.{css,md,json}": [
       "prettier --write"
-    ],
-    "backend/**/*.py": [
-      "bash -c 'cd backend && black . && flake8 .'"
     ]
   }
 }

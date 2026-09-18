@@ -4,6 +4,7 @@ around a reforestation region) + 12 months of mock carbon/biodiversity metrics.
 
 Run with:  python -m app.seed
 """
+
 import datetime
 import random
 
@@ -31,7 +32,9 @@ if not user:
 
 project = (
     db.query(models.Project)
-    .filter(models.Project.owner_id == user.id, models.Project.name == "Western Ghats Reforestation")
+    .filter(
+        models.Project.owner_id == user.id, models.Project.name == "Western Ghats Reforestation"
+    )
     .first()
 )
 if not project:
@@ -49,16 +52,12 @@ if not project:
 site_defs = [
     {
         "name": "Site A - Valley Ridge",
-        "coords": [
-            [73.80, 15.30], [73.82, 15.30], [73.82, 15.32], [73.80, 15.32], [73.80, 15.30]
-        ],
+        "coords": [[73.80, 15.30], [73.82, 15.30], [73.82, 15.32], [73.80, 15.32], [73.80, 15.30]],
         "area": 42.5,
     },
     {
         "name": "Site B - River Basin",
-        "coords": [
-            [73.85, 15.25], [73.87, 15.25], [73.87, 15.27], [73.85, 15.27], [73.85, 15.25]
-        ],
+        "coords": [[73.85, 15.25], [73.87, 15.25], [73.87, 15.27], [73.85, 15.27], [73.85, 15.25]],
         "area": 28.0,
     },
 ]
@@ -88,7 +87,9 @@ for sd in site_defs:
             site_id=site.id,
             date=month_date,
             carbon_tons=round(base_carbon + (12 - i) * random.uniform(2, 6), 2),
-            biodiversity_index=round(min(1.0, base_bio + (12 - i) * random.uniform(0.005, 0.02)), 3),
+            biodiversity_index=round(
+                min(1.0, base_bio + (12 - i) * random.uniform(0.005, 0.02)), 3
+            ),
         )
         db.add(metric)
     db.commit()

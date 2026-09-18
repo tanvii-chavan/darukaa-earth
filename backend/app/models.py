@@ -36,9 +36,7 @@ class Project(Base):
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     owner = relationship("User", back_populates="projects")
-    sites = relationship(
-        "Site", back_populates="project", cascade="all, delete-orphan"
-    )
+    sites = relationship("Site", back_populates="project", cascade="all, delete-orphan")
 
 
 class Site(Base):
@@ -53,9 +51,7 @@ class Site(Base):
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     project = relationship("Project", back_populates="sites")
-    metrics = relationship(
-        "SiteMetric", back_populates="site", cascade="all, delete-orphan"
-    )
+    metrics = relationship("SiteMetric", back_populates="site", cascade="all, delete-orphan")
 
 
 class SiteMetric(Base):

@@ -32,9 +32,7 @@ def list_projects(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(auth.get_current_user),
 ):
-    return db.query(models.Project).filter(
-        models.Project.owner_id == current_user.id
-    ).all()
+    return db.query(models.Project).filter(models.Project.owner_id == current_user.id).all()
 
 
 @router.get("/{project_id}", response_model=schemas.ProjectOut)

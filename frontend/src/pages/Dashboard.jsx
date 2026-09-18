@@ -44,12 +44,16 @@ export default function Dashboard() {
     }
     const name = window.prompt("Name this site:", "New Site");
     if (!name) return;
-    const res = await api.post("/sites/", {
-      project_id: selectedProjectId,
-      name,
-      geometry,
-    });
-    setSites((prev) => [...prev, res.data]);
+    try {
+      const res = await api.post("/sites/", {
+        project_id: selectedProjectId,
+        name,
+        geometry,
+      });
+      setSites((prev) => [...prev, res.data]);
+    } catch (err) {
+      alert("Could not create the site. Please try again.");
+    }
   };
 
   const handleSiteClick = (site) => {
@@ -75,11 +79,24 @@ export default function Dashboard() {
           onSelect={setSelectedProjectId}
           onCreate={handleCreateProject}
         />
-        <MapView
-          sites={visibleSites}
-          onPolygonDrawn={handlePolygonDrawn}
-          onSiteClick={handleSiteClick}
-        />
+        <div className="map-pane">
+          {selectedProjectId && visibleSites.length === 0 && (
+            <div className="map-empty-overlay">
+              🗺️ No sites yet for this project — use the polygon tool (top left) to draw
+              one.
+            </div>
+          )}
+          {!selectedProjectId && projects.length === 0 && (
+            <div className="map-empty-overlay">
+              👋 Create your first project on the left to get started.
+            </div>
+          )}
+          <MapView
+            sites={visibleSites}
+            onPolygonDrawn={handlePolygonDrawn}
+            onSiteClick={handleSiteClick}
+          />
+        </div>
       </div>
     </div>
   );
